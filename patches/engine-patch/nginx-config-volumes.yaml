@@ -1,0 +1,12 @@
+spec:
+  template:
+    spec:
+      containers:
+      - name: loadbalancer
+        volumeMounts:
+        - mountPath: /opt/bitnami/nginx/conf/server_blocks/engine
+          name: engine-conf
+      volumes:
+      - name: engine-conf
+        configMap:
+          name: engine-config

@@ -1,0 +1,12 @@
+spec:
+  template:
+    spec:
+      containers:
+      - name: loadbalancer
+        volumeMounts:
+        - mountPath: /opt/bitnami/nginx/conf/server_blocks/log
+          name: centralizedlog-conf
+      volumes:
+      - name: centralizedlog-conf
+        configMap:
+          name: centralizedlog-config

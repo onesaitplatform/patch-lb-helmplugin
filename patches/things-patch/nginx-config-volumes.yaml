@@ -1,0 +1,12 @@
+spec:
+  template:
+    spec:
+      containers:
+      - name: loadbalancer
+        volumeMounts:
+        - mountPath: /opt/bitnami/nginx/conf/server_blocks/things
+          name: things-conf
+      volumes:
+      - name: things-conf
+        configMap:
+          name: things-config

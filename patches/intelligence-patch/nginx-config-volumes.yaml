@@ -1,0 +1,12 @@
+spec:
+  template:
+    spec:
+      containers:
+      - name: loadbalancer
+        volumeMounts:
+        - mountPath: /opt/bitnami/nginx/conf/server_blocks/intelligence
+          name: intelligence-conf
+      volumes:
+      - name: intelligence-conf
+        configMap:
+          name: intelligence-config
