@@ -19,7 +19,7 @@ parseParams() {
 
   module=${params[1]}
 
-  returnCode=0
+  declare -i returnCode=0
   case $module in
     api|engine|opendata|intelligence|log|things|tools)
       echo "Right module"
@@ -53,7 +53,7 @@ for var in "$@"; do
     ((argcounter++))
 
     # Ignore host and domain arguments
-    if (( $argcounter < 5 )); then
+    if (( $argcounter < 3 )); then
         continue
     fi
 
