@@ -17,15 +17,15 @@ description: |-
 
   > helm addconfig <module>
 
- where 'module' can take these values:
-  - base
-  - opendata
-  - intelligence
-  - api
-  - engine
-  - tools
-  - things
-  - log
+  where 'module' can take these values:
+   - base
+   - opendata
+   - intelligence
+   - api
+   - engine
+   - tools
+   - things
+   - log
 
 ignoreFlags: false
 command: "$HELM_PLUGIN_DIR/apply-lb-patch.sh"
