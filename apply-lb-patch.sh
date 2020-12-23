@@ -5,7 +5,7 @@ set -e
 
 parseParams() {
 
-  if [[ ${#params[@]} -lt 1 ]]; then
+  if [[ ${#params[@]} -lt 2 ]]; then
     echo "Bad params number!"
     help
     exit 1
@@ -17,7 +17,7 @@ parseParams() {
     exit 1
   fi
 
-  module=${params[0]}
+  module=${params[1]}
 
 }
 
