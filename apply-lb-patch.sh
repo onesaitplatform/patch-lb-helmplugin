@@ -19,19 +19,19 @@ parseParams() {
 
   module=${params[1]}
 
-  returnCode = 0
+  returnCode=0
   case $module in
     api|engine|opendata|intelligence|log|things|tools)
       echo "Right module"
-      returnCode = 0
+      returnCode=0
       ;;
     *)
       echo "Wrong module..."
-      returnCode = 1
+      returnCode=1
       ;;
   esac
 
-  if [[ returnCode == 1 ]]; then
+  if [[ $returnCode == 1 ]]; then
     exit 1
   fi
 }
