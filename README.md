@@ -1,4 +1,4 @@
-## Helm plugin for patch Onesait Platform loadbalancer Desployment
+## Helm plugin for patch Onesait Platform loadbalancer Deployment
 
 This plugin allows to add new module location to loadbalancer (nginx) configuration
 
@@ -27,3 +27,22 @@ Requirements:
 ```
 
 ### Plugin usage:
+
+```
+> helm addconfig --module <module_name>
+
+or
+
+> helm addconfig --module <module_name> + install platform_chart
+
+where module_name can take one of these values:
+
+  - base
+  - opendata
+  - intelligence
+  - api
+  - engine
+  - tools
+  - things
+  - log
+```
