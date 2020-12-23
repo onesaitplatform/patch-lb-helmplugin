@@ -27,7 +27,7 @@ parseParams
 
 echo "Using kubectl to apply path to loadbalancer Deployment to module: "$module
 
-kubectl patch deployment loadbalancer --patch "$(cat patches/$module-patch/nginx-config-volumes.yaml)" --namespace $HELM_NAMESPACE
+kubectl patch deployment loadbalancer --patch "$(cat $HELM_PLUGIN_DIR/patches/$module-patch/nginx-config-volumes.yaml)" --namespace $HELM_NAMESPACE
 
 echo "loadbalancer Deployment succesfully patched"
 
