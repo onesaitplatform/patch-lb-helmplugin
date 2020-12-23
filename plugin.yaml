@@ -1,21 +1,21 @@
-name: "Patch loadbalancer config"
+name: "addconfig"
 version: "1.0"
 usage: "Self signed certificates generation"
 description: |-
   This plugin execution patches deployment configuration for OP loadbalancer
   in order to update nginx configuration including every location for
   additional modules deployed after base chart is installed
-  
+
   Usage:
 
-  > helm patch <module> install onesaitplatform/onesait-platform-chart \
+  > helm addconfig <module> install onesaitplatform/onesait-platform-chart \
                --namespace onesaitplatform-demo \
                --generate-name \
                --version 2
 
   or simply
 
-  > helm patch <module>
+  > helm addconfig <module>
 
  where 'module' can take these values:
   - base
@@ -30,5 +30,5 @@ description: |-
 ignoreFlags: false
 command: "$HELM_PLUGIN_DIR/apply-lb-patch.sh"
 hooks:
-  install: "cd $HELM_PLUGIN_DIR; scripts/install_plugin.sh"
-  update: "cd $HELM_PLUGIN_DIR; scripts/install_plugin.sh"
+  install: "cd $HELM_PLUGIN_DIR; scripts/install-plugin.sh"
+  update: "cd $HELM_PLUGIN_DIR; scripts/install-plugin.sh"
