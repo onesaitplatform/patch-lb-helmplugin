@@ -45,11 +45,15 @@ echo "Using kubectl to apply path to loadbalancer Deployment to module: "$module
 echo "Checking if current chart is deployed"
 
 declare -i numtries=0
-while [ -z $($HELM_BIN list | grep $module) && numtries < 3 ]
+while [ -z $($HELM_BIN list | grep $module) ]
 do
   echo $module" Chart is NOT already installed!"
   sleep 2
-  numtries++
+  ((numtries++))
+
+  if (( numtries > 3 )); then
+     exit 1
+  fi
 done
 
 kubectl patch deployment loadbalancer --patch "$(cat $HELM_PLUGIN_DIR/patches/$module-patch/nginx-config-volumes.yaml)" --namespace $HELM_NAMESPACE
