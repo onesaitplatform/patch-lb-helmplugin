@@ -56,9 +56,19 @@ done
 
 $HELM_BIN "${ARGS[@]}"
 
+echo "#############################################################################################################"
+echo "                                                                                                             "
+echo "  |   |  ____|  |       \  |                           _| _)                    |               _)           "
+echo "  |   |  __|    |      |\/ |       __|   _ \   __ \   |    |   _` |      __ \   |  |   |   _` |  |  __ \     "
+echo "  ___ |  |      |      |   |      (     (   |  |   |  __|  |  (   |      |   |  |  |   |  (   |  |  |   |    "
+echo " _|  _| _____| _____| _|  _|     \___| \___/  _|  _| _|   _| \__, |      .__/  _| \__,_| \__, | _| _|  _|    "
+echo "                                                             |___/      _|               |___/               "
+echo "                                                                                                             "
+echo "#############################################################################################################"
+echo
 echo "Using kubectl to apply path to loadbalancer Deployment to module: "$module
-
-echo "Checking if current chart is deployed"
+echo
+echo "Checking if current chart is deployed..."
 
 declare -i numtries=0
 while [ -z $($HELM_BIN list | grep $module | awk '{print $1}') ]
