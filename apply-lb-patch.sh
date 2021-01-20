@@ -61,7 +61,7 @@ echo "Using kubectl to apply path to loadbalancer Deployment to module: "$module
 echo "Checking if current chart is deployed"
 
 declare -i numtries=0
-while [ $($HELM_BIN list | grep $module) -eq 0 ]
+while [ -z $($HELM_BIN list | grep $module | awk '{print $1}') ]
 do
   echo $module" Chart is NOT already installed!"
   sleep 2
