@@ -42,6 +42,14 @@ parseParams
 
 echo "Using kubectl to apply path to loadbalancer Deployment to module: "$module
 
+echo "Checking if current chart is deployed"
+
+if [[ -z $($HELM_BIN list | grep $module) ]]; then
+  echo $module" Chart is installed"
+else
+  echo $module" Chart is NOT installed!" 
+fi
+
 kubectl patch deployment loadbalancer --patch "$(cat $HELM_PLUGIN_DIR/patches/$module-patch/nginx-config-volumes.yaml)" --namespace $HELM_NAMESPACE
 
 echo "loadbalancer Deployment succesfully patched"
