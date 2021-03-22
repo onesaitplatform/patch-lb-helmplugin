@@ -21,7 +21,7 @@ parseParams() {
 
   declare -i returnCode=0
   case $module in
-    api|engine|opendata|intelligence|log|things|tools|im)
+    api|engine|opendata|intelligence|log|things|tools|identity)
       echo "Right module"
       returnCode=0
       ;;
