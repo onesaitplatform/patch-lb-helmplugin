@@ -45,4 +45,5 @@ where module_name can take one of these values:
   - tools
   - things
   - log
+  - im
 ```
