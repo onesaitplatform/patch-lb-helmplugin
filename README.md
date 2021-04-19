@@ -11,7 +11,7 @@ Requirements:
 ### Plugin installation
 
 ```
-> helm plugin install https://cicd.onesaitplatform.com/gitlab/onesait-platform/deployment/patch-lb-helmplugin.git
+> helm plugin install https://gitlab.devops.onesait.com/onesait/platform/engine/onesait-platform/deployment/patch-lb-helmplugin.git
 ```
 
 ### Uninstall
