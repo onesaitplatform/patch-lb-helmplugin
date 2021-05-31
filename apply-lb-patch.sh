@@ -1,5 +1,16 @@
 #!/bin/bash
 
+echo ''
+echo ''
+echo '#########################################################'
+echo '###               SEVERAL CONFIG                      ###'
+echo '#########################################################'
+echo '### HELM_NAMESPACE must be set before run this script ###'
+echo '#########################################################'
+echo ''
+echo ''
+
+
 # if an error occurs the script stops inmediately
 set -e
 
@@ -40,21 +51,7 @@ params=("$@")
 
 parseParams
 
-# Declare an array and delete arguments
-declare -a ARGS=()
-declare -i argcounter=0
-for var in "$@"; do
-    ((argcounter++))
-
-    # Ignore host and domain arguments
-    if (( $argcounter < 3 )); then
-        continue
-    fi
-
-    ARGS+=($var)
-done
-
-$HELM_BIN "${ARGS[@]}"
+HELM_PLUGIN_DIR=$(find / -name patch-lb-helmplugin.git)
 
 echo "#############################################################################################################"
 echo "                                                                                                             "
@@ -71,7 +68,7 @@ echo
 echo "Checking if current chart is deployed..."
 
 declare -i numtries=0
-while [ -z $($HELM_BIN list | grep $module | awk '{print $1}') ]
+while [ -z $(helm list -n $HELM_NAMESPACE | grep $module | awk '{print $1}') ]
 do
   echo $module" Chart is NOT already installed!"
   sleep 2
