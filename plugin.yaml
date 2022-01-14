@@ -26,6 +26,7 @@ description: |-
    - tools
    - things
    - log
+   - minio
 
 ignoreFlags: false
 command: "$HELM_PLUGIN_DIR/apply-lb-patch.sh"

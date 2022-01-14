@@ -1,0 +1,17 @@
+spec:
+  template:
+    spec:
+      containers:
+      - name: loadbalancer
+        volumeMounts:
+        - mountPath: /opt/bitnami/nginx/conf/server_blocks/minio-browser
+          name: minio-browser-conf
+        - mountPath: /opt/bitnami/nginx/conf/server_blocks/minio-console
+          name: minio-console-conf
+      volumes:
+      - name: minio-browser-conf
+        configMap:
+          name: minio-browser-config
+      - name: minio-console-conf
+        configMap:
+          name: minio-console-config
