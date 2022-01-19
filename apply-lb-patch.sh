@@ -91,7 +91,7 @@ while [ -z $($HELM_BIN list -n $HELM_NAMESPACE | grep $module | awk '{print $1}'
 do
   echo $module" Chart is NOT already installed!"
   sleep 2
-  ((numtries++))
+  numtries+=1
 
   if (( numtries > 3 )); then
      exit 1
